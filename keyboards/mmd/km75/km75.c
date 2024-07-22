@@ -23,3 +23,8 @@ void keyboard_pre_init_kb(void) {
     keyboard_pre_init_user();
 }
 
+bool process_record_kb(uint16_t keycode, keyrecord_t *record){
+    xap_broadcast_log_message("Hello XAP!",10);
+    return true;
+}
+
