@@ -24,7 +24,19 @@ void keyboard_pre_init_kb(void) {
 }
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record){
-    xap_broadcast_log_message("Hello XAP!",10);
+    bool process_record_kb(uint16_t keycode, keyrecord_t *record)
+{
+    if (secure_is_locked())
+    {
+        if ((keycode==QK_SECURE_TOGGLE) || (keycode==MO(1)))
+        {
+            return true;
+        }
+        return false;
+    }
+    secure_activity_event();
+       
     return true;
+}
 }
 
