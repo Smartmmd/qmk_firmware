@@ -19,7 +19,7 @@
         "rgb_matrix": true
     },
     "matrix_pins": {
-        "cols": ["B0", "C15", "C14", "C13", "A15", "B7", "B6", "B5", "B4", "B12", "B13", "B14", "A14", "B2", "B15"],
+        "cols": ["B0", "C15", "C14", "C13", "A15", "B7", "B6", "B5", "B4", "B12", "B13", "B14", "A13", "B2", "B15"],
         "rows": ["A0", "A1", "A2", "A3", "A4", "A5"]
     },
     "processor": "STM32F103",
@@ -153,12 +153,13 @@
     "usb": {
         "device_version": "0.0.1",
         "force_nkro": true,
+        "no_startup_check": true,
         "pid": "0x3021",
         "vid": "0x28E9"
     },
     "ws2812": {
-        "driver": "pwm",
-        "pin": "A6"
+        "pin": "A6",
+        "driver": "pwm"
     },
     "layouts": {
         "LAYOUT": {

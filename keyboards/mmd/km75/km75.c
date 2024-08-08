@@ -17,14 +17,19 @@
 
 
 void keyboard_pre_init_kb(void) {
+
+    AFIO->MAPR = (AFIO->MAPR & ~AFIO_MAPR_SWJ_CFG_Msk);
+    AFIO->MAPR|= AFIO_MAPR_SWJ_CFG_DISABLE;
     gpio_set_pin_output(A8);
     gpio_write_pin_high(A8);
     
+    gpio_set_pin_output(A14);
+    gpio_write_pin_high(A14);
     keyboard_pre_init_user();
 }
 
-bool process_record_kb(uint16_t keycode, keyrecord_t *record){
-    bool process_record_kb(uint16_t keycode, keyrecord_t *record)
+
+bool process_record_kb(uint16_t keycode, keyrecord_t *record)
 {
     if (secure_is_locked())
     {
@@ -38,5 +43,5 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record){
        
     return true;
 }
-}
+
 
